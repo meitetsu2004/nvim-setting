@@ -2,7 +2,7 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap -- for conciseness
 
-keymap.set("i", "<leader>jk", "<ESC>", { desc = "Exit insert mode with jk" })
+-- keymap.set("i", "<leader>jk", "<ESC>", { desc = "Exit insert mode with jk" })
 
 -- increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" })
@@ -30,3 +30,8 @@ end, { desc = "Colorscheme picker (preview)" })
 
 -- Opt(Alt) + z で折り返しを切り替え (Normalモード)
 keymap.set("n", "<A-z>", "<cmd>set wrap!<CR>", { silent = true, desc = "Toggle Wrap" })
+
+-- aroundの挙動を変更
+for _, quote in ipairs({ '"', "'", "`" }) do
+  vim.keymap.set({ "x", "o" }, "a" .. quote, "2i" .. quote)
+end
