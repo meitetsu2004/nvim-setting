@@ -18,10 +18,11 @@ return {
     end
 
     vim.diagnostic.config({
-      virtual_text = { spacing = 2, prefix = "●" },
+      virtual_text = false,
       signs = true,
       underline = true,
       update_in_insert = false,
+      severity_sort = true,
     })
 
     vim.api.nvim_create_autocmd("LspAttach", {
@@ -84,13 +85,13 @@ return {
           analysis = {
             typeCheckingMode = "basic",
             diagnosticSeverityOverrides = {
-              reportOptionalCall = "warning",
-              reportOptionalContextManager = "warning",
-              reportOptionalIterable = "warning",
-              reportOptionalMemberAccess = "warning",
-              reportOptionalOperand = "warning",
-              reportOptionalSubscript = "warning",
-              reportOptionalArgument = "warning",
+              reportOptionalCall = "none",
+              reportOptionalContextManager = "none",
+              reportOptionalIterable = "none",
+              reportOptionalMemberAccess = "none",
+              reportOptionalOperand = "none",
+              reportOptionalSubscript = "none",
+              reportOptionalArgument = "none",
             },
           },
         },
