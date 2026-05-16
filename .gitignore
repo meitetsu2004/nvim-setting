@@ -1,3 +1,6 @@
 .DS_Store
 .nvimlog
 
+# tools
+.codex
+.claude
